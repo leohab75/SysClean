@@ -2,7 +2,7 @@
 Name=SysClean
 Comment=System Cleaner 
 Exec=/usr/bin/SysClean %U
-Icon=/usr/share/pixmaps/asClean/ccleaner.png
+Icon=/usr/share/pixmaps/SysClean/ccleaner.png
 Terminal=false
 Type=Application
 Categories=Utility;

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+bleachbit --list-cleaners  >> cleaners.list
+sed -i '/system.free_disk_space/d'  cleaners.list
+bleachbit -c $(cat cleaners.list)
+
+rm -rf /root/.local/share/Trash/*/** &> /dev/null
+
+aptitude purge ~c 
+
+exit 0;

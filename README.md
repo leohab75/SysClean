@@ -6,6 +6,6 @@
 
 В основе лежат утилиты Bleachbit, sweeper, aptitude, sensors, gamemode.
 
-Устанавливается: sudo apt install git && git clone https://github.com/leohab75/SysClean.git && cd SysClean/ && sh install.sh
+Устанавливается: sudo apt install git -y && git clone https://github.com/leohab75/SysClean.git && cd SysClean/ && sh install.sh
 
 Удалить его можно также запустив скрипт cd SysClean/ && sh install.sh

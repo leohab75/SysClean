@@ -6,6 +6,6 @@ bleachbit -c $(cat cleaners.list)
 
 rm -rf /root/.local/share/Trash/*/** &> /dev/null
 
-aptitude purge ~c 
+aptitude purge ~c -y
 
 exit 0;

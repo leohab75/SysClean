@@ -12,6 +12,7 @@ zenity --window-icon="$cclean" --question --text="удалить старые ф
     rm -rf /home/*/.local/share/Trash/*/** &> /dev/null
     bleachbit --list-cleaners  >> cleaners.list
     sed -i '/system.free_disk_space/d'  cleaners.list
+    sed -i '/system.memory/d' cleaners.list 
     bleachbit -c $(cat cleaners.list)
     sweeper --automatic
 

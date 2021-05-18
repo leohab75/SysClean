@@ -1,8 +1,8 @@
 [Desktop Entry]
-Name=asClean
+Name=SysClean
 Comment=System Cleaner 
-Exec=/usr/bin/asClean.sh %U
+Exec=/usr/bin/SysClean %U
 Icon=/usr/share/pixmaps/asClean/ccleaner.png
 Terminal=false
 Type=Application
-Categories=System;
+Categories=Utility;

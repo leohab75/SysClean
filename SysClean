@@ -1,9 +1,9 @@
 #!/bin/bash
 
-icon="/usr/share/pixmaps/asClean/rating.png"
-sensors="/usr/share/pixmaps/asClean/sensors.png"
-cclean="/usr/share/pixmaps/asClean/ccleaner.png"
-gamemode="/usr/share/pixmaps/asClean/render-setup.png"
+icon="/usr/share/pixmaps/SysClean/rating.png"
+sensors="/usr/share/pixmaps/SysClean/sensors.png"
+cclean="/usr/share/pixmaps/SysClean/ccleaner.png"
+gamemode="/usr/share/pixmaps/SysClean/render-setup.png"
 
 function Delete() {
 zenity --window-icon="$cclean" --question --text="удалить старые файлы ?" --title "DELETE" --height=200 --width=400 
@@ -19,7 +19,7 @@ zenity --window-icon="$cclean" --question --text="удалить старые ф
         #от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400
             if [ $? == 0 ]; then
-            pkexec /etc/init.d/AsClean
+            pkexec /etc/init.d/SysCleanRoot
             fi
     fi
 }

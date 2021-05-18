@@ -1,0 +1,14 @@
+
+#!/bin/bash
+
+
+rm -fv /usr/share/application/SysClean.Desktop
+rm -fv /usr/bin/SysClean
+rm -fv /etc/init.d/SysCleanRoot
+rm -fv /etc/init.d/UnSysClean
+rm -rfv /usr/share/pixmaps/SysClean
+
+aptitude remove $(cat /tmp/appdel) -y 
+aptitude purge ~c -y
+
+exit 0;

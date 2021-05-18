@@ -6,28 +6,28 @@ apt install bleachbit aptitude sweeper lm-sensors zenity gamemode -y
 yes | sensors-detect
 
 #управление утилитой
-cp /tmp/asClean/asClean.sh /usr/bin/
+cp /tmp/SysClean/SysClean /usr/bin/
 
 #удаление
-cp /tmp/asClean/UnAsClean /etc/init.d/
+cp /tmp/SysClean/UnSysClean /etc/init.d/
 
 
 #чистка от рута
-cp /tmp/asClean/AsClean /etc/init.d/
+cp /tmp/SysClean/SysCleanRoot /etc/init.d/
 
 
 #иконки
-mkdir /usr/share/pixmaps/asClean
-cp -rv /tmp/asClean/ico/* /usr/share/pixmaps/asClean/
-cp /tmp/asClean/asClean.desktop /usr/share/applications/
+mkdir /usr/share/pixmaps/SysClean
+cp -rv /tmp/SysClean/ico/* /usr/share/pixmaps/SysClean/
+cp /tmp/SysClean/SysClean.desktop /usr/share/applications/
 
 update-desktop-database
 update-icon-caches /usr/share/pixmaps/*
 
-chmod +x /usr/bin/asClean.sh
-chmod +x /etc/init.d/AsClean
-chmod +x /etc/init.d/UnAsClean
-chmod +x /usr/share/applications/asClean.desktop
+chmod +x /usr/bin/SysClean
+chmod +x /etc/init.d/SysCleanRoot
+chmod +x /etc/init.d/UnSysClean
+chmod +x /usr/share/applications/SysClean.desktop
 
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f /usr/bin/asClean.sh ]; then
+if [ ! -f /usr/bin/SysClean ]; then
 
     cp -rv ./ /tmp/SysClean
     pkexec bash /tmp/SysClean/dependencies.sh

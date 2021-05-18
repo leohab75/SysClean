@@ -8,4 +8,4 @@
 
 Устанавливается: sudo apt install git && git clone https://github.com/leohab75/SysClean.git && cd SysClean/ && sh install.sh
 
-Удалить его можно также запустив скрипт sh install.sh
+Удалить его можно также запустив скрипт cd SysClean/ && sh install.sh

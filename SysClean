@@ -41,7 +41,7 @@ function Gamemode() {
 
 while true ;
 do
-    choice=$( zenity --window-icon="$icon" --list --imagelist  --width=650 --height=300 --column="Name" --column="Category" --text="" \
+    choice=$( zenity --window-icon="$icon" --list --imagelist  --width=600 --height=320 --column="Icon" --column="Category" --text="" \
     "$cclean" "Удалить журналы, архивы, остатки файлов конфигураций, кеши и т.д."\
     "$sensors" "Отобразить показания датчиков: температуру и т.д."\
     "$gamemode" "Запустить программу в режиме \"Gamemode\" " )

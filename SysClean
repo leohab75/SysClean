@@ -8,18 +8,43 @@ gamemode="/usr/share/pixmaps/SysClean/render-setup.png"
 function Delete() {
 zenity --window-icon="$cclean" --question --text="удалить старые файлы ?" --title "DELETE" --height=200 --width=400 
 
-    if [ $? == 0 ]; then
-    rm -rf /home/*/.local/share/Trash/*/** &> /dev/null
+    if [[ $? == 0 ]]; then
+
+    (
+    echo "0"
+    echo "# Отчистка корзины"
+        rm -rf /home/*/.local/share/Trash/*/** &> /dev/null
+    
+    echo "5"
+    echo "# запуск bleachbit "
     bleachbit --list-cleaners  >> cleaners.list
+    
+    echo "10"
+    echo "# добавление икслючений"
     sed -i '/system.free_disk_space/d'  cleaners.list
     sed -i '/system.memory/d' cleaners.list 
-    bleachbit -c $(cat cleaners.list)
-    sweeper --automatic
+    
+    echo "15"
+    echo "# отчистка системы bleachbit"
+    bleachbit -c $(cat cleaners.list)  &> /dev/null
+    
+    echo "80"
+    echo "# запуск sweeper";
+    sweeper --automatic &> /dev/null
 
-        #от рута
+    echo "100";
+    echo "# готово!.. ") | zenity --window-icon="$cclean" --progress --title="Отчистка системы $USER" --text="подготовка" --percentage=0 --height=200 --width=300
+            
+
+        if [[ "$?" == -1 ]] ; then
+        zenity --window-icon="$cclean" --error  --text="Отчистка отменена !" --height=200 --width=300
+        fi
+
+
+        #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400
-            if [ $? == 0 ]; then
-            pkexec /etc/init.d/SysCleanRoot
+            if [[ $? == 0 ]]; then
+            pkexec bash /etc/init.d/SysCleanRoot
             fi
     fi
 }

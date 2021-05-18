@@ -1,14 +1,16 @@
 #!/bin/bash
 
+#установка программ
 apt update
 apt install bleachbit aptitude sweeper lm-sensors zenity gamemode -y 
 
+#определение оборудования
 yes | sensors-detect
 
 #управление утилитой
 cp /tmp/SysClean/SysClean /usr/bin/
 
-#удаление
+#удаление утилиты
 cp /tmp/SysClean/UnSysClean /etc/init.d/
 
 
@@ -21,9 +23,11 @@ mkdir /usr/share/pixmaps/SysClean
 cp -rv /tmp/SysClean/ico/* /usr/share/pixmaps/SysClean/
 cp /tmp/SysClean/SysClean.desktop /usr/share/applications/
 
+#обновление меню приложений
 update-desktop-database
 update-icon-caches /usr/share/pixmaps/*
 
+#инициализация файлов
 chmod +x /usr/bin/SysClean
 chmod +x /etc/init.d/SysCleanRoot
 chmod +x /etc/init.d/UnSysClean

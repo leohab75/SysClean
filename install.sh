@@ -1,10 +1,13 @@
 #!/bin/bash
 
+
+#если установлен, перходим к удалению
 if [[ ! -f /usr/bin/SysClean ]]; then
 
     cp -rv ./ /tmp/SysClean
     pkexec bash /tmp/SysClean/dependencies.sh
     rm -rfv /tmp/SysClean
+
 else
 
     cclean="/usr/share/pixmaps/SysClean/ccleaner.png"
@@ -20,7 +23,7 @@ else
         touch /tmp/appdel
         echo $appdel >> /tmp/appdel
 
-
+        #запуск скрипта удаления утилиты
         pkexec bash /etc/init.d/UnSysClean
 
         rm -v /tmp/appdel 

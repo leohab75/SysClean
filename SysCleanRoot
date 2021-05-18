@@ -1,11 +1,36 @@
 #!/bin/bash
 
+cclean="/usr/share/pixmaps/SysClean/ccleaner.png"
+
+echo "0"
+echo "# Отчистка корзины"
+    rm -rf /home/*/.local/share/Trash/*/** &> /dev/null
+
+echo "5"
+echo "# запуск bleachbit "
 bleachbit --list-cleaners  >> cleaners.list
+
+echo "10"
+echo "# добавление икслючений"
 sed -i '/system.free_disk_space/d'  cleaners.list
-bleachbit -c $(cat cleaners.list)
 
-rm -rf /root/.local/share/Trash/*/** &> /dev/null
+echo "15"
+echo "# отчистка системы bleachbit"
+bleachbit -c $(cat cleaners.list)  &> /dev/null
 
-aptitude purge ~c -y
+echo "80"
+echo "# запуск sweeper"
+sweeper --automatic &> /dev/null
+
+echo "90"
+echo "# Пакетные файлы конфигурации"
+aptitude purge ~c -y &> /dev/null
+
+echo "100";
+echo "# готово!.. ") | zenity --window-icon="$cclean" --progress --title="Отчистка системы $USER" --text="подготовка" --percentage=0 --height=200 --width=300
+        
+    if [[ "$?" == -1 ]] ; then
+    zenity --window-icon="$cclean" --error  --text="Отчистка отменена !" --height=200 --width=300
+    fi
 
 exit 0;

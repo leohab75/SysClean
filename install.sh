@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f /usr/bin/SysClean ]; then
+if [[ ! -f /usr/bin/SysClean ]]; then
 
     cp -rv ./ /tmp/SysClean
     pkexec bash /tmp/SysClean/dependencies.sh
@@ -11,7 +11,7 @@ else
 
     zenity --window-icon=$cclean --question --text="Удалить с ПК ?" --height=100 --width=300
 
-        if [ $? = 0 ]; then
+        if [[ $? == 0 ]]; then
 
         appdel=$(zenity --window-icon=$cclean --list --column="Удалить"\
         --separator=" " --multiple --title="UnAsClean" --text="Выберите программы для удаления: ctrl+ " \

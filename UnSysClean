@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -fv /usr/share/application/SysClean.desktop
+rm -fv /usr/share/applications/SysClean.desktop
 rm -fv /usr/bin/SysClean
 rm -fv /etc/init.d/SysCleanRoot
 rm -fv /etc/init.d/UnSysClean

@@ -9,3 +9,5 @@
 Устанавливается: sudo apt install git -y && git clone https://github.com/leohab75/SysClean && cd SysClean/ && bash install.sh
 
 Удалить его можно также запустив скрипт cd SysClean/ && bash install.sh
+
+![alt text](ico/SysClean.png)

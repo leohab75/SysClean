@@ -25,7 +25,7 @@ zenity --window-icon="$cclean" --question --text="удалить старые ф
     sed -i '/system.memory/d' cleaners.list 
     
     echo "15"
-    echo "# отчистка системы bleachbit"
+    echo "# отчистка системы средствами bleachbit"
     bleachbit -c $(cat cleaners.list)  &> /dev/null
     
     echo "80"
@@ -33,13 +33,9 @@ zenity --window-icon="$cclean" --question --text="удалить старые ф
     sweeper --automatic &> /dev/null
 
     echo "100";
-    echo "# готово!.. ") | zenity --window-icon="$cclean" --progress --title="Отчистка системы $USER" --text="подготовка" --percentage=0 --height=200 --width=300
+    echo "# готово!.. ") | zenity --window-icon="$cclean" --progress --title="Отчистка системы $USER" --text="подготовка" --auto-kill --percentage=0 --height=200 --width=300
             
-
-        if [[ "$?" == -1 ]] ; then
-        zenity --window-icon="$cclean" --error  --text="Отчистка отменена !" --height=200 --width=300
-        fi
-
+        
 
         #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400

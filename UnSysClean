@@ -1,13 +1,15 @@
 #!/bin/bash
 
-
-rm -fv /usr/share/application/SysClean.Desktop
+rm -fv /usr/share/application/SysClean.desktop
 rm -fv /usr/bin/SysClean
 rm -fv /etc/init.d/SysCleanRoot
 rm -fv /etc/init.d/UnSysClean
 rm -rfv /usr/share/pixmaps/SysClean
 
-aptitude remove $(cat /tmp/appdel) -y 
+aptitude remove $(cat /tmp/appdel) -y
 aptitude purge ~c -y
 
-exit 0;
+update-desktop-database
+update-icon-caches /usr/share/pixmaps/*
+
+exit 0

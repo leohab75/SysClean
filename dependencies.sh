@@ -2,7 +2,7 @@
 
 #установка программ
 apt update
-apt install bleachbit aptitude sweeper lm-sensors zenity gamemode -y 
+apt install bleachbit aptitude sweeper lm-sensors zenity gamemode -y
 
 #определение оборудования
 yes | sensors-detect
@@ -13,10 +13,8 @@ cp /tmp/SysClean/SysClean /usr/bin/
 #удаление утилиты
 cp /tmp/SysClean/UnSysClean /etc/init.d/
 
-
 #чистка от рута
 cp /tmp/SysClean/SysCleanRoot /etc/init.d/
-
 
 #иконки
 mkdir /usr/share/pixmaps/SysClean
@@ -33,6 +31,4 @@ chmod +x /etc/init.d/SysCleanRoot
 chmod +x /etc/init.d/UnSysClean
 chmod +x /usr/share/applications/SysClean.desktop
 
-
-
-exit 0;
+exit 0

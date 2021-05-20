@@ -3,6 +3,7 @@
 #если установлен, перходим к удалению
 if [[ ! -f /usr/bin/SysClean ]]; then
 
+    #установка
     cp -rv ./ /tmp/SysClean
     pkexec bash /tmp/SysClean/dependencies.sh
     rm -rfv /tmp/SysClean

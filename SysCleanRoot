@@ -4,7 +4,7 @@ cclean="/usr/share/pixmaps/SysClean/ccleaner.png"
 
 echo "0"
 echo "# Отчистка корзины"
-    rm -rf /home/*/.local/share/Trash/*/** &> /dev/null
+    rm -rf /root/*/.local/share/Trash/*/** &> /dev/null
 
 echo "5"
 echo "# запуск bleachbit "

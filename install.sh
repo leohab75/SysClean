@@ -22,6 +22,8 @@ else
         touch /tmp/appdel
         echo $appdel >>/tmp/appdel
 
+        rm -fv /home/$USER/.local/share/applications/SysClean.desktop
+
         #запуск скрипта удаления утилиты
         pkexec bash /etc/init.d/UnSysClean
 

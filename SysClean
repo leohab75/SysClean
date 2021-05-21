@@ -31,7 +31,7 @@ function Delete() {
         #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400
         if [[ $? == 0 ]]; then
-            pkexec bash /etc/init.d/SysCleanRoot
+            xterm -e " pkexec bash /etc/init.d/SysCleanRoot & sleep 5 " &
         fi
     fi
 }

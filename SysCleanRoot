@@ -1,6 +1,9 @@
 #!/bin/bash
 
-xterm -e "rm -rfv /root/.local/share/Trash/*/** 
+rm -rfv /root/.local/share/Trash/*/** 
+
+xhost +local
+export DYSPLAY=:0.0
 
 bleachbit --list-cleaners  > cleaners.list
 
@@ -9,6 +12,6 @@ sed -i '/system.memory/d' cleaners.list
 
 bleachbit -c $(cat cleaners.list)  
 
-aptitude purge ~c -y 2> /dev/null & sleep 5" &
+aptitude purge ~c -y 2> /dev/null & sleep 5
     
 exit 0

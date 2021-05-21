@@ -10,30 +10,28 @@ function Delete() {
 
     if [[ $? == 0 ]]; then
 
-        echo $DISPLAY 2>/etc/SysClean/display.conf
+        rm -rf /home/*/.local/share/Trash/*/** 
 
-        rm -rf /home/*/.local/share/Trash/*/**
+        bleachbit --list-cleaners >/home/$USER/.local/share/cleaners.list
 
-        xterm -e "bleachbit --list-cleaners >cleaners.list
+        sed -i '/system.free_disk_space/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/apt.autoclean/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/apt.autoremove/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/apt.clean/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/apt.package_lists/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/system.memory/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/dnf.autoremove/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/dnf.clean_all/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/vlc.mru/d' /home/$USER/.local/share/cleaners.list
 
-        sed -i '/system.free_disk_space/d' cleaners.list
-        sed -i '/apt.autoclean/d' cleaners.list
-        sed -i '/apt.autoremove/d' cleaners.list
-        sed -i '/apt.clean/d' cleaners.list
-        sed -i '/apt.package_lists/d' cleaners.list
-        sed -i '/system.memory/d' cleaners.list
-        sed -i '/dnf.autoremove/d' cleaners.list
-        sed -i '/dnf.clean_all/d' cleaners.list
-        #sed -i '/vlc.mru/d' cleaners.list
+        xterm -e bleachbit -c $(cat /home/$USER/.local/share/cleaners.list)
 
-        bleachbit -c $(cat cleaners.list) 
-
-        sweeper --automatic & sleep 10" &
+        xterm -e sweeper --automatic & sleep 2
 
         #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400
         if [[ $? == 0 ]]; then
-            pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY  bash /etc/init.d/SysCleanRoot
+            pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY bash /etc/init.d/SysCleanRoot
         fi
     fi
 }

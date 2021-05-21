@@ -18,7 +18,7 @@ else
 
         appdel=$(zenity --window-icon=$cclean --list --column="Удалить" \
             --separator=" " --multiple --title="Delete programm" --text="Выберите программы для удаления: ctrl+ " \
-            "bleachbit" "sweeper" "lm-sensors" "zenity" "gamemode" "wget" "xterm"--height=300)
+            "bleachbit" "sweeper" "lm-sensors" "zenity" "gamemode" "wget" "xterm" --height=300)
 
         touch /tmp/appdel
         echo $appdel >>/tmp/appdel

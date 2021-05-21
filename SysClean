@@ -10,6 +10,8 @@ function Delete() {
 
     if [[ $? == 0 ]]; then
 
+        echo $DISPLAY 2>/etc/SysClean/display.conf
+
         rm -rf /home/*/.local/share/Trash/*/**
 
         xterm -e "bleachbit --list-cleaners >cleaners.list
@@ -26,12 +28,12 @@ function Delete() {
 
         bleachbit -c $(cat cleaners.list) 
 
-        sweeper --automatic & sleep 5" &
+        sweeper --automatic & sleep 10" &
 
         #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400
         if [[ $? == 0 ]]; then
-            xterm -e " pkexec bash /etc/init.d/SysCleanRoot & sleep 5 " &
+            pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY  bash /etc/init.d/SysCleanRoot
         fi
     fi
 }

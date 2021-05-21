@@ -6,6 +6,9 @@ rm -fv /etc/init.d/SysCleanRoot
 rm -fv /etc/init.d/UnSysClean
 rm -rfv /usr/share/pixmaps/SysClean
 
+rm cleaners.list
+rm /root/cleaners.list
+
 aptitude remove $(cat /tmp/appdel) -y
 aptitude purge ~c -y
 

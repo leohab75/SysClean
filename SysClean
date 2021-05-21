@@ -12,7 +12,7 @@ function Delete() {
 
         rm -rf /home/*/.local/share/Trash/*/**
 
-        bleachbit --list-cleaners >cleaners.list
+        xterm -e "bleachbit --list-cleaners >cleaners.list
 
         sed -i '/system.free_disk_space/d' cleaners.list
         sed -i '/apt.autoclean/d' cleaners.list
@@ -24,9 +24,9 @@ function Delete() {
         sed -i '/dnf.clean_all/d' cleaners.list
         #sed -i '/vlc.mru/d' cleaners.list
 
-        bleachbit -c $(cat cleaners.list)
+        bleachbit -c $(cat cleaners.list) 
 
-        sweeper --automatic
+        sweeper --automatic & sleep 5" &
 
         #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400

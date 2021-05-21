@@ -4,7 +4,7 @@
 
 
 apt update
-apt install wget aptitude sweeper lm-sensors zenity gamemode -y
+apt install wget aptitude sweeper xterm lm-sensors zenity gamemode -y
 
 wget https://download.opensuse.org/repositories/home:/andrew_z/xUbuntu_21.04/all/bleachbit_4.2.0-0_all.deb
 dpkg -i bleachbit_4.2.0-0_all.deb

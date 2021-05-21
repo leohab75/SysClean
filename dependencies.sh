@@ -3,11 +3,12 @@
 #установка программ
 
 apt update
-apt install wget aptitude sweeper xterm lm-sensors zenity gamemode -y
+apt install aptitude sweeper xterm lm-sensors zenity gamemode -y
 
 # bleachbit установка 21,04
 if [[ ! -n $(dpkg -l | grep -i bleachbit) ]]; then
 
+    apt install wget -y
     wget https://download.opensuse.org/repositories/home:/andrew_z/xUbuntu_21.04/all/bleachbit_4.2.0-0_all.deb
     dpkg -i bleachbit_4.2.0-0_all.deb
     rm -f bleachbit_4.2.0-0_all.deb

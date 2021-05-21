@@ -10,37 +10,23 @@ function Delete() {
 
     if [[ $? == 0 ]]; then
 
-        (
-            echo "0"
-            echo "# Отчистка корзины"
-            rm -rf /home/*/.local/share/Trash/*/**
+        rm -rf /home/*/.local/share/Trash/*/**
 
-            echo "5"
-            echo "# запуск bleachbit "
-            bleachbit --list-cleaners >cleaners.list
+        bleachbit --list-cleaners >cleaners.list
 
-            echo "10"
-            echo "# добавление икслючений"
-            sed -i '/system.free_disk_space/d' cleaners.list
-            sed -i '/apt.autoclean/d' cleaners.list
-            sed -i '/apt.autoremove/d' cleaners.list
-            sed -i '/apt.clean/d' cleaners.list
-            sed -i '/apt.package_lists/d' cleaners.list
-            sed -i '/system.memory/d' cleaners.list
-            sed -i '/dnf.autoremove/d' cleaners.list
-            sed -i '/dnf.clean_all/d' cleaners.list
-            sed -i '/vlc.mru/d' cleaners.list
+        sed -i '/system.free_disk_space/d' cleaners.list
+        sed -i '/apt.autoclean/d' cleaners.list
+        sed -i '/apt.autoremove/d' cleaners.list
+        sed -i '/apt.clean/d' cleaners.list
+        sed -i '/apt.package_lists/d' cleaners.list
+        sed -i '/system.memory/d' cleaners.list
+        sed -i '/dnf.autoremove/d' cleaners.list
+        sed -i '/dnf.clean_all/d' cleaners.list
+        #sed -i '/vlc.mru/d' cleaners.list
 
-            echo "15"
-            echo "# отчистка системы средствами bleachbit"
-            bleachbit -c $(cat cleaners.list)
+        bleachbit -c $(cat cleaners.list)
 
-            echo "80"
-            echo "# запуск sweeper"
-            sweeper --automatic
-            echo "100"
-            echo "# готово!.. "
-        ) | zenity --window-icon="$cclean" --progress --title="Отчистка системы $USER" --text="подготовка" --auto-kill --percentage=0 --height=200 --width=300
+        sweeper --automatic
 
         #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400
@@ -58,7 +44,7 @@ function Sensors() {
 
 function Gamemode() {
 
-    prog=$(zenity --window-icon="$gamemode" --entry --title="Gamemoderun" --text="Укажите название программы" --entry-text="firefox" --height=200 --width=400 )
+    prog=$(zenity --window-icon="$gamemode" --entry --title="Gamemoderun" --text="Укажите название программы" --entry-text="firefox" --height=200 --width=400)
 
     if [ -n $prog ]; then
         gamemoderun $prog || zenity --window-icon="$gamemode" --error --text="Такого приложения не найдено" --height=200 --width=400

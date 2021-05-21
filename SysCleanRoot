@@ -2,7 +2,7 @@
 
 rm -rfv /root/.local/share/Trash/*/** 
 
-/usr/bin/bleachbit --list-cleaners >/etc/init.d/cleaners.list
+/usr/bin/bleachbit --list-cleaners > /etc/init.d/cleaners.list
 
 sed -i '/system.free_disk_space/d' /etc/init.d/cleaners.list
 #sed -i '/system.memory/d' /etc/init.d/cleaners.list

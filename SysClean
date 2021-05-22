@@ -22,8 +22,7 @@ function Delete() {
         sed -i '/system.memory/d' /home/$USER/.local/share/cleaners.list
         sed -i '/dnf.autoremove/d' /home/$USER/.local/share/cleaners.list
         sed -i '/dnf.clean_all/d' /home/$USER/.local/share/cleaners.list
-        sed -i '/vlc.mru/d' /home/$USER/.local/share/cleaners.list
-
+        
         xterm -e bleachbit -c $(cat /home/$USER/.local/share/cleaners.list)
 
         xterm -e sweeper --automatic & sleep 2

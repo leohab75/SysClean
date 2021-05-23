@@ -2,8 +2,6 @@
 
 rm -rfv /root/.local/share/Trash/*/** 
 
-journalctl --vacuum-time=3d
-
 /usr/bin/bleachbit --list-cleaners > /etc/init.d/cleaners.list
 
 sed -i '/system.free_disk_space/d' /etc/init.d/cleaners.list

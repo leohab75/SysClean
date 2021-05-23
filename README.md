@@ -10,4 +10,6 @@
 
 Удалить его можно также запустив скрипт cd SysClean/ && bash install.sh
 
+краткий обзор https://www.youtube.com/watch?v=NxxeSeXqtCs
+
 ![alt text](ico/SysClean.png)

@@ -6,6 +6,17 @@ rm -rfv /root/.local/share/Trash/*/**
 
 sed -i '/system.free_disk_space/d' /etc/init.d/cleaners.list
 sed -i '/system.memory/d' /etc/init.d/cleaners.list
+#куки 
+        sed -i '/chromium.cookies/d' /etc/init.d/cleaners.list
+        sed -i '/chromium.passwords/d' /etc/init.d/cleaners.list
+        sed -i '/discord.cookies/d' /etc/init.d/cleaners.list
+        sed -i '/epiphany.passwords/d' /etc/init.d/cleaners.list
+        sed -i '/firefox.passwords/d' /etc/init.d/cleaners.list
+        sed -i '/firefox.cookies/d' /etc/init.d/cleaners.list
+        sed -i '/opera.passwords/d' /etc/init.d/cleaners.list
+        sed -i '/opera.cookies/d' /etc/init.d/cleaners.list
+        sed -i '/waterfox.passwords/d' /etc/init.d/cleaners.list
+        
 xterm -e /usr/bin/bleachbit -c $(cat /etc/init.d/cleaners.list) 
 
 xterm -e aptitude purge ~c -y  & sleep 5

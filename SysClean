@@ -22,6 +22,17 @@ function Delete() {
         sed -i '/system.memory/d' /home/$USER/.local/share/cleaners.list
         sed -i '/dnf.autoremove/d' /home/$USER/.local/share/cleaners.list
         sed -i '/dnf.clean_all/d' /home/$USER/.local/share/cleaners.list
+        #куки 
+        sed -i '/chromium.cookies/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/chromium.passwords/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/discord.cookies/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/epiphany.passwords/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/firefox.passwords/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/firefox.cookies/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/opera.passwords/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/opera.cookies/d' /home/$USER/.local/share/cleaners.list
+        sed -i '/waterfox.passwords/d' /home/$USER/.local/share/cleaners.list
+        
         
         xterm -e bleachbit -c $(cat /home/$USER/.local/share/cleaners.list)
 

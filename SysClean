@@ -36,7 +36,8 @@ function Delete() {
         
         xterm -e bleachbit -c $(cat /home/$USER/.local/share/cleaners.list)
 
-        xterm -e sweeper --automatic & sleep 2
+        xterm -e sweeper --automatic 
+        sleep 3
 
         #почти тоже самое от рута
         zenity --window-icon="$cclean" --question --text="Отчистить от Суперпользователя?" --title "DELETE ROOT" --height=200 --width=400

@@ -19,6 +19,8 @@ sed -i '/system.memory/d' /etc/init.d/cleaners.list
         
 xterm -e /usr/bin/bleachbit -c $(cat /etc/init.d/cleaners.list) 
 
-xterm -e aptitude purge ~c -y  & sleep 5
+xterm -e aptitude --purge-unused purge ~c -y 
+
+sleep 2
 
 exit 0

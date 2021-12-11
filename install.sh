@@ -12,7 +12,7 @@ else
 
     cclean="/usr/share/pixmaps/SysClean/ccleaner.png"
 
-    zenity --window-icon=$cclean --question --text="Удалить с ПК ?" --height=150 --width=300
+    zenity --window-icon=$cclean --question --text="Удалить с ПК ?" --height=100 --width=300
 
     if [[ $? == 0 ]]; then
 
